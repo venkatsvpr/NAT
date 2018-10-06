@@ -1,0 +1,179 @@
+Coding Challenge Introduction:
+
+1.     This assignment should take about one hour. Please set aside a single block of time, spending no more than 90 minutes total on it. If you do not finish within that timeframe, please send in what you have completed up to that point and let us know what you would have worked on if you had more time.
+
+2.     Feel free to use all resources available to you, such as books, the Internet, etc. The only resource restrictions we have are that you complete the challenge independently (do not consult with anyone else), and that any code or inspiration you may receive from an outside source (e.g. StackOverflow) is properly attributed in your code.
+
+3.     We ask that you do this assignment in C/C++. The use of the STL is allowed, but please do not use any other libraries, such as Boost.
+
+
+
+Coding Challenge
+
+For this coding challenge, you will be implementing a simplified NAT. If you don’t know what a NAT is, please look here for more information.
+
+Your program will read a list of NAT entries and a list of flows, and output the flows after they have been processed by your NAT.
+
+Input
+
+The inputs to your program should be two files; NAT and FLOW.
+
+The NAT file will describe the translations for your NAT Table. The format of each line will be as so
+
+<ip>:<port>,<ip>:<port>
+
+
+
+The first ip, port pair is original ip and port that should be translated to the second ip, port pair. The ip or the port (not both) can have a “*” instead of an ip or port. The star means that anything should match that value. For example, the following are all valid inputs:
+
+10.0.1.1:8080,192.168.0.1:80
+
+*:8081,192.168.0.1:80
+
+10.0.1.2:*192.168.0.1:80
+
+
+
+The FLOW file will describe the incoming flows through your NAT. The format of each line will be as so
+
+<ip>:<port>
+
+
+
+The ip,port pair is the incoming flow that may or may not be modified by your NAT. There cannot be a “*” in the input for the flow. For example, the following is a valid input
+
+192.168.0.1:8081
+
+
+
+Output
+
+The output to your program should be one file; OUTPUT.
+
+The ouput file should have one entry corresponding to each line in the FLOW file. If there is a match, that line should output the original ip, port pair and the translated ip, port pair. If there is no match, the program should output that there is no NAT entry for that ip, port pair.
+
+You may assume that the input file contains only valid, well-formed entries. A sample input NAT and FLOW file as well as the corresponding sample output for those two inputs are below.
+
+Sample Inputs
+
+NAT File
+
+
+
+10.0.1.1:8080,192.168.0.1:80
+
+10.0.1.1:8084,192.168.0.2:8080
+
+10.0.1.1:8086,192.168.0.4:80
+
+10.0.1.1:8082,192.168.0.3:80
+
+10.0.1.2:8080,1.1.1.1:1
+
+*:21,1.2.3.4:12
+
+10.11.12.13:*,40.100.20.7:3389
+
+
+
+FLOW File
+
+
+
+10.0.1.1:8080
+
+5.6.7.8:55555
+
+10.0.1.1:8086
+
+9.8.7.6:21
+
+10.1.1.2:8080
+
+34.65.12.9:22
+
+10.0.1.2:8080
+
+
+
+Sample Output
+
+
+
+10.0.1.1:8080 -> 192.168.0.1:80
+
+No nat match for 5.6.7.8:55555
+
+10.0.1.1:8086 -> 192.168.0.4:80
+
+9.8.7.6:21 -> 1.2.3.4:12
+
+No nat match for 10.1.1.2:8080
+
+No nat match for 34.65.12.9:22
+
+10.0.1.2:8080 -> 1.1.1.1:1
+
+
+
+Evaluation Guidelines:
+
+We will be evaluating your code in three main areas:
+
+1.     Functionality
+
+a.     Does the code work correctly?
+
+b.     Are there any valid inputs for which the code returns incorrect results or breaks?
+
+
+
+2.     Code clarity and cleanliness
+
+a.     Is the code well structured? Does the code make use of object-oriented principles where appropriate?
+
+b.     Is the logic well encapsulated? Is common logic shared in functions with reasonable interfaces?
+
+c.     Is it easy to understand what the code is doing? Are the names of variables and functions descriptive? Does the code avoid overly complex or esoteric syntax?
+
+d.     Are particularly tricky areas of the code well-commented to guide the reader?
+
+
+
+3.     Performance
+
+a.     There are no “right or wrong” answers when it comes to this section. Making tradeoffs between space and time complexity is a core component of this coding assignment.
+
+b.     We are interested in seeing that you thought about performance instead of simply settling for the naïve solution. Even if you do not get around to implementing an optimal solution, we are interested in ideas that you thought about or areas of the code that you’ve identified as candidates for optimization.
+
+c.     If you are selected for a subsequent round of interviews, you and your interviewer may discuss performance-related tradeoffs at length, so please be ready to talk about the decisions that you made.
+
+d.     In general, we expect the code to be able to answer questions “reasonably quickly” (i.e. not appear unresponsive) for large datasets.
+
+
+
+*The description of the problem may be underspecified. You are free to refine the spec to handle underspecified cases. If you do so, please indicate the decisions that you made, and if you considered any potential alternatives, why you settled on the decision that you made.
+
+
+
+Submission Instructions:
+
+After time is up, please do the following:
+
+1.     Put all of your code in a Git repository hosted on a site like Github or Bitbucket. Make sure to include any test code or scripts that you wrote.
+
+2.     Include a README file, which includes anything you’d like to communicate to the person that is reviewing your code. This may include items such as:
+
+a.     how you tested your solution
+
+b.     any interesting coding, design, or algorithmic choices you’d like to point out
+
+c.     any refinements or optimizations that you would’ve implemented if you had more time
+
+d.     how you modified or made the challenge more well defined if you did
+
+e.     anything else you’d like the reviewer to know
+
+
+
+Congratulations for working on this challenge. Please let us know when you have finished by sending us a link to your repository. Please send the link to me and  tom.mccormick@illumio.com or joseph.burton@illumio.com 
