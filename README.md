@@ -34,40 +34,51 @@ Functions:
 
 Adds <key,value> pair to hashtable
 ----------------------------------  
+```
 void addKeyValueToHashTable (hashtable_t *hashtable, char *key, char *value)
-
+```
 
 Create and return the hashtable
 -------------------------------
+```
 hashtable_t * createHashTable (int size)
-
+```
 Process the rules and populates the hashtable
 ---------------------------------------------
+```
 void processNatRule(char *pathToRuleFile, hashtable_t *hashtable)
-
+```
 
 Check the whole of IpAdress:Port (or) IpAddress:AnyPort (or) AnyIpAddress:Port
 ------------------------------------------------------------------------------
+```
 char * checkMatch (hashtable_t *hashtable, char *source)
 Match IpAddress:AnyPort scenario - char * MatchIpAddress (hashtable_t *hashtable, char *ipAddress)
 Match the AnyIpAddress:port scenario - char * MatchPortNumber (hashtable_t *hashtable, char *port)
-
+```
 Translate the flows in the inputfile to output file using the rules in the hashtable.
 -------------------------------------------------------------------------------------
+```
 translateFlows (hashtable_t *hashtable, char *inputFlowFile, char *outputFile)
-
+```
 
 HashTable APIs:
 ==============
 Create hashtable
 ----------------
+```
 hashtable_t *ht_create( int size )
-
+```
 Add key,value to hashtable
 --------------------------
-- void ht_set( hashtable_t *hashtable, char *key, char *value ) {
-Get value for key from hashtable - char *ht_get( hashtable_t *hashtable, char *key ) {
-
+```
+void ht_set( hashtable_t *hashtable, char *key, char *value ) {
+```
+Get value for key from hashtable 
+--------------------------------
+```
+char *ht_get( hashtable_t *hashtable, char *key ) {
+```
 
 Build:
 ======
