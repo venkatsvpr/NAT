@@ -82,12 +82,14 @@ char *ht_get( hashtable_t *hashtable, char *key ) {
 
 Build:
 ======
+```
 make clean
 make
 make all
-
+```
 
 Syntax:
 =======
+```
 nat <path to rule>  <path to input> <path to output> 
-
+```
